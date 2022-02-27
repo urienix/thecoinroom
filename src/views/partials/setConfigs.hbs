@@ -1,0 +1,52 @@
+<div class="modal fade" id="setConfigsModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content darker p-2">
+            <div class="nes-container is-dark with-title">
+                <p class="title">CONFIGURANDO CONEXION</p>
+                <form id="iniciarConexion">
+                    <div class="nes-field mt-4 mb-4">
+                        <label for="apodo">Nombre:</label>
+                        <input type="text" id="apodo" class="nes-input is-dark" placeholder="Escribe un apodo..." required>
+                    </div>
+                    <br>
+                    <div class="nes-field mb-4">
+                        <label for="dark_select">Avatar:</label>
+                        <div class="nes-select is-dark">
+                            <select required id="avatar">
+                                <option value="" disabled selected hidden>Selecciona un avatar...</option>
+                                <option value="mario">Mario</option>
+                                <option value="ash">Ash</option>
+                                <option value="pokeball">Pokebola</option>
+                                <option value="bulbasaur">Bulbasaur</option>
+                                <option value="charmander">charmander</option>
+                                <option value="squirtle">Squirtle</option>
+                                <option value="kirby">Kirbi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="nes-field mb-4">
+                        <label for="dark_select">Color:</label>
+                        <div class="nes-select is-dark">
+                            <select required id="color">
+                                <option value="" disabled selected hidden>Selecciona un color...</option>
+                                <option value="mario">Mario</option>
+                                <option value="ash">Ash</option>
+                                <option value="pokeball">Pokebola</option>
+                                <option value="bulbasaur">Bulbasaur</option>
+                                <option value="charmander">charmander</option>
+                                <option value="squirtle">Squirtle</option>
+                                <option value="kirby">Kirbi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-right">
+                        <button type="submit" class="nes-btn nes-btn is-primary">Conectar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

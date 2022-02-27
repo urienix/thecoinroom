@@ -1,0 +1,59 @@
+/*!***************************************************************************\
+  NES.icons
+  Version: development
+#{build-data()}
+\*****************************************************************************/
+
+@import './font-face.scss';
+@import '../css/nes-icons-variables.scss';
+
+$sizes: (
+  '2x': 2em,
+  '3x': 3em,
+  '4x': 4em,
+  '5x': 5em,
+);
+
+.nes-icon {
+  display: inline-block;
+  font-family: 'nes-icons';
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: none;
+
+  @each $rotation in (90, 180, 270) {
+    &.rotate-#{$rotation} {
+      transform: rotate(#{$rotation}deg);
+      transform-origin: 50% 50%;
+    }
+  }
+
+  &.flip-horizontal,
+  &.flip-vertical {
+    transform-origin: 50% 50%;
+  }
+
+  &.flip-horizontal {
+    transform: scale(-1, 1);
+  }
+
+  &.flip-vertical {
+    transform: scale(1, -1);
+  }
+
+  @each $sizeName, $sizeValue in $sizes {
+    &.size-#{$sizeName} {
+      font-size: $sizeValue;
+    }
+  }
+
+  @each $iconName, $iconGlyph in $nes-icons {
+    &.#{$iconName}::before {
+      content: $iconGlyph;
+    }
+  }
+}

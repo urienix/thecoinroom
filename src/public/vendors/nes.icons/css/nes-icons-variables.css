@@ -1,0 +1,109 @@
+:root {
+
+  --nes-icon-ban: '\ea01';
+
+  --nes-icon-bars: '\ea02';
+
+  --nes-icon-bomb: '\ea03';
+
+  --nes-icon-calendar: '\ea04';
+
+  --nes-icon-caret-down: '\ea05';
+
+  --nes-icon-caret-left: '\ea06';
+
+  --nes-icon-caret-right: '\ea07';
+
+  --nes-icon-caret-up: '\ea08';
+
+  --nes-icon-check: '\ea09';
+
+  --nes-icon-check-circle: '\ea0a';
+
+  --nes-icon-check-square: '\ea0b';
+
+  --nes-icon-circle: '\ea0c';
+
+  --nes-icon-cloud: '\ea0d';
+
+  --nes-icon-cog: '\ea0e';
+
+  --nes-icon-comment: '\ea0f';
+
+  --nes-icon-database: '\ea10';
+
+  --nes-icon-discord: '\ea11';
+
+  --nes-icon-envelope: '\ea12';
+
+  --nes-icon-exclamation: '\ea13';
+
+  --nes-icon-exclamation-circle: '\ea14';
+
+  --nes-icon-exclamation-triangle: '\ea15';
+
+  --nes-icon-exclamation-triangle-alt: '\ea16';
+
+  --nes-icon-eye: '\ea17';
+
+  --nes-icon-eye-slash: '\ea18';
+
+  --nes-icon-facebook: '\ea19';
+
+  --nes-icon-facebook-square: '\ea1a';
+
+  --nes-icon-file: '\ea1b';
+
+  --nes-icon-folder: '\ea1c';
+
+  --nes-icon-github: '\ea1d';
+
+  --nes-icon-github-square: '\ea1e';
+
+  --nes-icon-heart: '\ea1f';
+
+  --nes-icon-linkedin: '\ea20';
+
+  --nes-icon-nes: '\ea21';
+
+  --nes-icon-nes-jp: '\ea22';
+
+  --nes-icon-pause: '\ea23';
+
+  --nes-icon-play: '\ea24';
+
+  --nes-icon-search: '\ea25';
+
+  --nes-icon-search-minus: '\ea26';
+
+  --nes-icon-search-plus: '\ea27';
+
+  --nes-icon-snes: '\ea28';
+
+  --nes-icon-square: '\ea29';
+
+  --nes-icon-star: '\ea2a';
+
+  --nes-icon-thumbs-up: '\ea2b';
+
+  --nes-icon-times: '\ea2c';
+
+  --nes-icon-trophy: '\ea2d';
+
+  --nes-icon-twitch: '\ea2e';
+
+  --nes-icon-twitch-square: '\ea2f';
+
+  --nes-icon-twitter: '\ea30';
+
+  --nes-icon-twitter-square: '\ea31';
+
+  --nes-icon-user: '\ea32';
+
+  --nes-icon-users: '\ea33';
+
+  --nes-icon-youtube: '\ea34';
+
+  --nes-icon-youtube-square: '\ea35';
+
+}

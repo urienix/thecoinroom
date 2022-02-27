@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('/fonts/PressStart2P/PressStart2P-Regular.ttf');
+}
+
+/* Dark theme is not aplicable 
+*{
+    font-family: 'Press Start 2P';
+    background-color:#212529;
+    color: #fff;
+}*/
+
+* {
+    font-family: 'Press Start 2P';
+    font-size: 12px;
+}
+
+body{
+    background-color:#212529;
+    color: #fff;
+}
+
+
+.nes-balloon {
+    align-self: flex-start;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+section.message-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-list>.message {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.message-list>.message>.nes-balloon {
+    max-width: 550px;
+}
+
+.message-list>.message i {
+    align-self: flex-end;
+}
+
+.message-list>.message.-left {
+    align-self: flex-start;
+}
+
+.message-list>.message.-right {
+    align-self: flex-end;
+}
+
+.message-list>.message.-left i {
+    margin-right: 2rem;
+}
+
+.message-list>.message.-right i {
+    margin-left: 2rem;
+}
+
+.icon-list>.blur-filter {
+    filter: blur(10px);
+}
+
+.nes-balloon.copied-balloon {
+    position: absolute;
+    display: none;
+    padding: 1rem;
+    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, .6);
+    z-index: 1;
+}
+
+
+@media screen and (max-width: 768px) {
+    .message-list>.message>.nes-balloon {
+        max-width: 65%;
+    }
+}
+
+#conversationSection{
+    height: 60vh;
+    overflow-y: auto;
+}
+
+#messagesSection{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.darker{
+    background-color: #131313;
+    color: #fff;
+}
+
+.social-buttons{
+    margin-left: auto;
+}
+
+.link-item{
+    color: #bd93f9;
+    text-decoration: none;
+}
+
+.link-item:hover{
+    color: #f1fa8c;
+    text-decoration: none;
+}
+
+.title-image{
+    display: inline;
+    width: 50px;
+}
+
+.inline-item{
+    display: inline;
+}
+
+.scalled{
+    transform: scale(0.75);
+}
+
+.modal{
+    background-color: #131313EF;
+}
