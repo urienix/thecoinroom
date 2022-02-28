@@ -27,15 +27,10 @@
     <div class="row mx-auto mt-4">
         <div class="col-md-3">
             <section class="nes-container is-dark with-title my-2">
-                <p class="title">Conectados(<span id="usersConnectedsCount">6</span>)</p>
+                <p class="title">Conectados(<span id="usersConnectedsCount">0</span>)</p>
                 <div class="lists">
-                    <ul class="nes-list">
-                        <li class="my-4"><i class="nes-kirby scalled"></i>Urienix(tu)</li>
-                        <li class="my-4"><i class="nes-mario scalled"></i>Samuel</li>
-                        <li class="my-4"><i class="nes-bulbasaur scalled"></i> Xavier</li>
-                        <li class="my-4"><i class="nes-charmander scalled"></i>Limuel</li>
-                        <li class="my-4"><i class="nes-squirtle scalled"></i>Manuel</li>
-                        <li class="my-4"><i class="nes-ash scalled"></i>Ruben</li>
+                    <ul class="nes-list" id="usersConnectedList">
+                        <!-- Aqui aparecen los usuario conectados -->
                     </ul>
                 </div>
             </section>
@@ -44,38 +39,14 @@
             <section id="messagesSection" class="nes-container with-title is-dark mt-2">
                 <p class="title">Chatline</p>
                 <section id="conversationSection" class="message-list">
-
-                    <section class="message -left">
-                        <i class="nes-mario scalled"></i>
-                        <div class="nes-balloon from-left is-dark with-title">
-                            <p class="title text-success">Samuel</p>
-                            <p>Hola Urienix como stas</p>
-                        </div>
-                    </section>
-
-                    <section class="message -right">
-                        <div class="nes-balloon from-right with-witle is-dark">
-                            <p class="title text-primary">Urienix</p>
-                            <p>Ahh prro. aqui probando socket io</p>
-                        </div>
-                        <i class="nes-kirby scalled"></i>
-                    </section>
-
-                    <section class="message -left">
-                        <i class="nes-charmander scalled"></i>
-                        <div class="nes-balloon from-left with-witle is-dark">
-                            <p class="title text-primary">Limuel</p>
-                            <p>Miralo, jajaja, se ve masison wey</p>
-                        </div>
-                    </section>
-
+                    <!-- La lista de mensajes aparecerá aqui -->
                 </section>
             </section>
             <section id="writeMessageSection" class="nes-container is-dark mt-4">
                 <div class="row">
                     <div class="col-md-10">
                         <textarea rows="1" id="writeMessageInput" class="nes-textarea is-dark"
-                            placeholder="Escribe algo..."></textarea>
+                            placeholder="Escribe algo..." autofocus></textarea>
                     </div>
                     <div class="col-sm-2">
                         <button type="button" id="sendMessageButton" class="nes-btn is-disabled ml-2 px-4" title="Enviar" disabled>

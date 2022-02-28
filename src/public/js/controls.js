@@ -19,7 +19,7 @@ let avatars = {
 function generateMessageBlock(username, avatar, color, message) {
     let contentString = '';
     
-    if (!(username === 'urienix')) {
+    if (!(username === JSON.parse(sessionStorage.getItem('user')).apodo)) {
         //from left
         contentString = `
             <section class="message -left">
@@ -47,17 +47,6 @@ function generateMessageBlock(username, avatar, color, message) {
     return component.documentElement;
 }
 
-function testGetMessage(){
-    let message = {
-        username: 'urienix',
-        avatar: 'kirby',
-        color: 'yellow',
-        message: 'Hola que pedo'
-    }
-    let messageBlock = generateMessageBlock(message.username, message.avatar, message.color, message.message);
-    document.getElementById('conversationSection').insertAdjacentHTML('beforeend', messageBlock.innerHTML);
-}
-
 function sendMessage() {
     let message = document.getElementById('writeMessageInput').value;
     console.log(message);
@@ -82,6 +71,7 @@ window.onload = () => {
     }else{
         conectar();
     }
+    document.getElementById('writeMessageInput').value = '';
 }
 
 document.getElementById('iniciarConexion').addEventListener('submit', (e) => {
@@ -94,7 +84,7 @@ document.getElementById('iniciarConexion').addEventListener('submit', (e) => {
     color.classList.remove('is-danger');
     avatar.classList.remove('is-danger');
 
-    if (apodo.value.trim().length < 3) {
+    if (apodo.value.trim().length <= 3) {
         document.getElementById('apodo').classList.add('is-danger');
         return;
     }
@@ -134,13 +124,76 @@ function conectar() {
         socket.emit('newUser', user);
     });
 
-    socket.on('userExists', () => {
+    socket.on('userExists', () => { // se emite cuando el apodo ya esta en uso
         window.alert('Apodo ya existe');
         sessionStorage.removeItem('user');
         $('#setConfigsModal').modal('show');
     });
 
-    socket.on('userConnected', (data) => {
+    socket.on('userConnected', (data) => { // se emite cuando un usuario se conecta y devuelve todos los usuarios conectados
         console.log(data);
+        data.forEach(user => {
+            usersList.set(user.apodo, {user});
+        });
+        drawUsersList();
     });
+
+    socket.on('newUser', (data) => { // se emite cuando un usuario se conecta y devuelve el nuevo usuario conectado
+        usersList.set(data.apodo, {user: data});
+        drawUsersList();
+    });
+
+    socket.on('userDisconnected', (apodo) => { // se emite cuando un usuario se desconecta y devuelve el usuario desconectado
+        usersList.delete(apodo);
+        drawUsersList();
+    });
+
+    socket.on('newMessage', (data) => { // se emite cuando un usuario envia un mensaje y devuelve el mensaje
+        console.log(data);
+        console.log(usersList);
+        let messageBlock = generateMessageBlock(data.apodo, usersList.get(data.apodo).user.avatar, usersList.get(data.apodo).user.color, data.message);
+        document.getElementById('conversationSection').insertAdjacentHTML('beforeend', messageBlock.innerHTML);
+
+        document.getElementById('conversationSection').scrollTop = document.getElementById('conversationSection').scrollHeight;  // hace scroll al final de la conversacion
+    });
+}
+
+
+function sendMessage() {
+    let message = document.getElementById('writeMessageInput');
+    if (message.value.trim().length > 0) {
+        socket.emit('sendMessage', {
+            apodo: JSON.parse(sessionStorage.getItem('user')).apodo,
+            message: message.value
+        });
+    }
+    message.value = '';
+    document.getElementById('sendMessageButton').classList.replace('is-primary', 'is-disabled');
+    document.getElementById('sendMessageButton').disabled = true;
+}
+
+document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
+
+document.getElementById('writeMessageInput').addEventListener('keyup', function(event) {
+    if(event.keyCode === 13){
+        event.target.value = event.target.value.replace(/\n/g, '').trim();
+        sendMessage();
+    }
+});
+
+
+function drawUsersList() {
+    let contentString = ``;
+    let me = JSON.parse(sessionStorage.getItem('user'));
+    contentString += `<li class="my-4"><i class="${avatars[me.avatar]} scalled"></i><br><span class="nes-text ${colors[me.color]}">${me.apodo}(tu)</span></li>`;
+    if(usersList.size > 1){
+        usersList.forEach(item => {
+            console.log(item);
+            if (item.user.apodo != JSON.parse(sessionStorage.getItem('user')).apodo) {
+                contentString += `<li class="my-4"><i class="${avatars[item.user.avatar]} scalled"></i><br><span class="nes-text ${colors[item.user.color]}">${item.user.apodo}</span></li>`;
+            }
+        });
+    }
+    document.getElementById('usersConnectedList').innerHTML = contentString;
+    document.getElementById('usersConnectedsCount').innerHTML = usersList.size;
 }

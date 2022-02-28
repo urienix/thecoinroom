@@ -126,3 +126,7 @@ section.message-list {
 .modal{
     background-color: #131313EF;
 }
+
+button:enabled{
+    cursor: url(/vendors/nes.css/assets/cursor-click.png), pointer !important;
+}
